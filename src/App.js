@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React from 'react';
+import InterestForm from './components/InterestForm';
+import './App.css'; 
+import axios from "axios"
+import { useState } from 'react';
 
 function App() {
+  const [result, setResult]= useState("Fill The Fields")
+  
+  const handleSubmit = async (formData) => {
+    setResult("Loading...")
+ 
+    axios.get('https://veera-sec-server.onrender.com/calculate', {
+    params: {
+        principal: formData.principal,
+        rate: formData.rate,
+        time: formData.time
+    }
+})
+.then(response => {
+    console.log(response.data);
+    setResult(response.data.interest)
+})
+.catch(error => {
+    console.error('Error:', error.response.data.error);
+    setResult(error.response.data.error)
+});
+   
+   }
+      
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+        <h1>Simple Interest Calculator</h1>
+        <InterestForm onSubmit={handleSubmit} output={result} />
+      
     </div>
   );
 }

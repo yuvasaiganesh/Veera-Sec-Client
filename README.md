@@ -68,3 +68,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+### User Input Field
+In Interest Component I was Form element to get User inputs.
+In this form elemt i was used input elemets type number this allow user can enter the numbers only.
+
+### Fetching Data form Backend
+Here i was installed axios package and imported axios in app.js file.
+By using axios get method i fetched data from backend server by sending user inputs as parameters to the backend api
+
+### output Rendering
+If data fetched by Backend server is availble i t will render in outputsection avilble in INterest Component
+If data is not availble or any error occured the error will render in outputsection avilble in INterest Component
+
+### Responsive page
+By using Media Queries I was developed this website as Responsive
